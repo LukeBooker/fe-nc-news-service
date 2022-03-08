@@ -1,8 +1,7 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import Nav from "./components/nav";
-import Header from "./components/header";
-// import TopicSearch from "./components/topic-search";
+import TopicHeader from "./components/header";
 import ArticleList from "./components/articleList";
 
 function App() {
@@ -12,15 +11,8 @@ function App() {
         <Nav />
         {
           <Routes>
-            <Route
-              path="/"
-              element={
-                <>
-                  <Header />
-                  <ArticleList />
-                </>
-              }
-            />
+            <Route path="/" element={<ArticleList />} />
+            <Route path="/topic/:topic" element={<ArticleList />} />
           </Routes>
         }
       </div>

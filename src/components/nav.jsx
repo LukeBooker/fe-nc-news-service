@@ -5,12 +5,12 @@ const Nav = () => {
   const [isActive, setisActive] = React.useState(false);
   return (
     <nav
-      class="navbar is-fixed-top has-background-info-light"
+      className="navbar is-fixed-top has-background-info-light"
       role="navigation"
       aria-label="main navigation"
     >
-      <div class="navbar-brand">
-        <a class="navbar-item" href="/">
+      <div className="navbar-brand">
+        <a className="navbar-item" href="/">
           <h5 className="has-text-info ml-3">nc news</h5>
         </a>
         <a
@@ -33,7 +33,7 @@ const Nav = () => {
           <a className="navbar-item">Post an article</a>
           <a className="navbar-item">Article of the day</a>
           <a className="navbar-item">About</a>
-          <a class="navbar-item button is-normal is-responsive has-background-info has-text-light mt-4 mr-3">
+          <a className="navbar-item button is-normal is-responsive has-background-info has-text-light mt-4 mr-3">
             <strong>Log in</strong>
           </a>
         </div>
