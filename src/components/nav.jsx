@@ -30,9 +30,10 @@ const Nav = () => {
       </div>
       <div id="navbar" className={`navbar-menu ${isActive ? "is-active" : ""}`}>
         <div className="navbar-end">
-          <a className="navbar-item">Home</a>
+          <a className="navbar-item">Post an article</a>
           <a className="navbar-item">Article of the day</a>
-          <a class="navbar-item button has-background-info has-text-light mt-4 mr-3">
+          <a className="navbar-item">About</a>
+          <a class="navbar-item button is-normal is-responsive has-background-info has-text-light mt-4 mr-3">
             <strong>Log in</strong>
           </a>
         </div>
