@@ -6,6 +6,20 @@ Northcoders News has articles which are divided into topics. Each article has us
 
 This sprint should consolidate your understanding of making a [C.R.U.D](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) application from a front end perspective.
 
+## BE Endpoints
+
+The project currently has the following endpoints:
+
+- `GET /api` - responds with a JSON representation of all the available endpoints of the API
+- `GET /api/topics` - responds with an array of topic objects, each of which should have the properties: slug, description
+- `GET /api/articles/:article_id` - responds with an article object by id containing the correct article properties
+- `PATCH /api/articles/:article_id` - request body accepts an object in the form { inc_votes: newVote }, responds with article containing incremented/decremented votes
+- `GET /api/users` - responds with an array of objects, each object with the sole property 'username'
+- `GET /api/articles` - responds with an array of article objects, each object with the correct properties
+- `GET /api/articles/:article_id/comments` - responds with an array of comments, each containing the correct properties
+- `POST /api/articles/:article_id/comments` - responds with comment newly added to the article by id
+- `DELETE /api/comments/:comment_id` - responds with comment newly added to the article by id
+
 ## Kanban
 
 ### Link to your Trello Board here: https://trello.com/b/cEYt2hYP

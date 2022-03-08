@@ -1,3 +1,46 @@
 .App {
+  font-family: "Andika", sans-serif;
+  font-weight: bold;
   text-align: center;
+}
+
+h5 {
+  font-family: "Luckiest Guy", cursive;
+  font-size: 2em;
+  margin-top: 0.2em;
+}
+
+.bg-img {
+  background-image: url("https://images.unsplash.com/photo-1445112098124-3e76dd67983c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=867&q=80");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #999;
+}
+
+#topic-button:hover {
+  box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.2),
+    0 15px 40px 0 rgba(0, 0, 0, 0.19);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 0.5em;
+}
+
+.card {
+  height: max-content;
+}
+
+#topic-box {
+  border-radius: 0px;
+}
+
+#article-title {
+  color: hsl(204, 86%, 53%);
+}
+#article-title:hover {
+  color: hotpink;
 }
