@@ -1,11 +1,6 @@
-const ArticleCard = ({
-  article_id,
-  title,
-  topic,
-  author,
-  createdAt,
-  votes,
-}) => {
+import { Link } from "react-router-dom";
+
+const ArticleCard = ({ articleId, title, topic, author, createdAt, votes }) => {
   const time = new Date(createdAt).toLocaleTimeString("en", {
     timeStyle: "short",
     hour12: true,
@@ -33,9 +28,11 @@ const ArticleCard = ({
             </figure>
           </div>
           <div className="media-content pb-0 mb-0">
-            <p className="is-size-5 is-clickable" id="article-title" href="#">
-              {title}
-            </p>
+            <Link key={articleId} to={`/articles/${articleId}`}>
+              <p className="is-size-5 is-clickable" id="article-title" href="#">
+                {title}
+              </p>
+            </Link>
             <p className="subtitle is-6">{author}</p>
           </div>
         </div>

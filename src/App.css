@@ -54,6 +54,10 @@ h5 {
 #article-title {
   color: hsl(204, 86%, 53%);
 }
+#full-article-title {
+  color: hsl(204, 86%, 53%);
+}
+
 #article-title:hover {
   color: hotpink;
 }
