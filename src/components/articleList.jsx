@@ -24,7 +24,16 @@ const ArticleList = () => {
     }
   }, [topic]);
 
-  if (isLoading) return <p className="is-size-2 mx-5 my-5">loading..</p>;
+  if (isLoading)
+    return (
+      <section>
+        <div class="block mt-6 pt-6">
+          <p className="is-size-2 mt-6">
+            One moment. <br></br>Loading...
+          </p>
+        </div>
+      </section>
+    );
 
   return (
     <section>
