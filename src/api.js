@@ -25,3 +25,11 @@ export const fetchArticleById = (articleId) => {
     return data.article;
   });
 };
+
+export const patchArticleVotes = (articleId, voteChange) => {
+  return axios
+    .patch(`${baseURL}/articles/${articleId}`, { inc_votes: voteChange })
+    .then(({ data }) => {
+      return data.updatedArticle;
+    });
+};

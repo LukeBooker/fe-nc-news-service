@@ -33,7 +33,10 @@ const ArticleCard = ({ articleId, title, topic, author, createdAt, votes }) => {
           </div>
         </div>
         <div className="content">
-          <span className="tag mr-3 mb-3">{votes} votes</span>
+          <span className="tag mr-3 mb-3">
+            <i class="fas fa-carrot fa-1x mr-1"></i>
+            {votes} votes
+          </span>
 
           <a href="#">#{topic}</a>
           <br></br>
