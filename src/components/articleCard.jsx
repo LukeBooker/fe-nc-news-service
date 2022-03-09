@@ -1,16 +1,8 @@
 import { Link } from "react-router-dom";
+import formatTime from "../utils/formatTime";
 
 const ArticleCard = ({ articleId, title, topic, author, createdAt, votes }) => {
-  const time = new Date(createdAt).toLocaleTimeString("en", {
-    timeStyle: "short",
-    hour12: true,
-    timeZone: "UTC",
-  });
-  const date = new Date(createdAt);
-  const day = date.getDate();
-  const year = date.getFullYear();
-  const month = date.getMonth() + 1;
-  const dateStr = month + "/" + day + "/" + year;
+  const timeArticleCreated = formatTime(createdAt);
 
   return (
     <article className="card">
@@ -29,9 +21,13 @@ const ArticleCard = ({ articleId, title, topic, author, createdAt, votes }) => {
           </div>
           <div className="media-content pb-0 mb-0">
             <Link key={articleId} to={`/articles/${articleId}`}>
-              <p className="is-size-5 is-clickable" id="article-title" href="#">
+              <tag
+                className="is-size-5 is-clickable"
+                id="article-title"
+                href="#"
+              >
                 {title}
-              </p>
+              </tag>
             </Link>
             <p className="subtitle is-6">{author}</p>
           </div>
@@ -41,7 +37,7 @@ const ArticleCard = ({ articleId, title, topic, author, createdAt, votes }) => {
 
           <a href="#">#{topic}</a>
           <br></br>
-          <time>{`${time} ${dateStr}`}</time>
+          <time>{timeArticleCreated}</time>
         </div>
       </div>
     </article>

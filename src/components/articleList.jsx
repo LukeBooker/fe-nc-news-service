@@ -4,6 +4,7 @@ import ArticleCard from "./articleCard";
 import * as api from "../api";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Loading from "./loading";
 
 const ArticleList = () => {
   const { topic } = useParams();
@@ -24,16 +25,8 @@ const ArticleList = () => {
     }
   }, [topic]);
 
-  if (isLoading)
-    return (
-      <section>
-        <div className="block mt-6 pt-6">
-          <p className="is-size-2 mt-6">
-            One moment. <br></br>Loading...
-          </p>
-        </div>
-      </section>
-    );
+  if (isLoading) return <Loading />;
+
   return (
     <>
       <Header topic={topic} />
