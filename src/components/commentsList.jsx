@@ -2,8 +2,7 @@ import CommentCard from "./commentCard";
 import * as api from "../api";
 import { useState, useEffect } from "react";
 
-const CommentsList = ({ articleId }) => {
-  const [comments, setComments] = useState("");
+const CommentsList = ({ articleId, setComments, comments }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {

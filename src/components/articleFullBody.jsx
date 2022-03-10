@@ -12,8 +12,10 @@ const ArticleFullBody = () => {
   const [article, setArticle] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [showCommentForm, setShowCommentForm] = useState(false);
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
+    setIsLoading(true);
     api.fetchArticleById(articleId).then((article) => {
       setArticle(article);
       setIsLoading(false);
@@ -40,8 +42,14 @@ const ArticleFullBody = () => {
         setArticle={setArticle}
         handleShowCommentForm={handleShowCommentForm}
       />
-      {showCommentForm ? <PostComment /> : null}
-      <CommentsList articleId={articleId} />
+      {showCommentForm ? (
+        <PostComment articleId={articleId} setComments={setComments} />
+      ) : null}
+      <CommentsList
+        articleId={articleId}
+        comments={comments}
+        setComments={setComments}
+      />
     </>
   );
 };
