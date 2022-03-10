@@ -14,6 +14,8 @@ const ArticleFull = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [err, setErr] = useState();
   const [newVotes, setNewVotes] = useState(0);
+  const [disableUpVote, setDisableUpVote] = useState(false);
+  const [disableDownVote, setDisableDownVote] = useState(false);
 
   useEffect(() => {
     api.fetchArticleById(articleId).then((article) => {
@@ -69,7 +71,11 @@ const ArticleFull = () => {
         </Link>
         <button
           className="button is-info is-light mx-2 my-2"
-          onClick={() => handleVoteClick(+1)}
+          disabled={disableUpVote}
+          onClick={() => {
+            handleVoteClick(+1);
+            setDisableUpVote(true);
+          }}
         >
           <i className="fas fa-arrow-alt-circle-up fa-2x"></i> Vote
         </button>
@@ -79,7 +85,11 @@ const ArticleFull = () => {
         </span>
         <button
           className="button is-info is-light mx-2 my-2"
-          onClick={() => handleVoteClick(-1)}
+          disabled={disableDownVote}
+          onClick={() => {
+            handleVoteClick(-1);
+            setDisableDownVote(true);
+          }}
         >
           <i className="fas fa-arrow-alt-circle-down fa-2x"></i> Vote
         </button>

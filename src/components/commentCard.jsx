@@ -3,7 +3,12 @@ import { useState } from "react";
 
 const CommentsCard = ({ body, votes, author, createdAt }) => {
   const timeArticleCreated = formatTime(createdAt);
+  //   console.log(votes);
+
   const [newVotes, setNewVotes] = useState(0);
+  const [disableUpVote, setDisableUpVote] = useState(false);
+  const [disableDownVote, setDisableDownVote] = useState(false);
+
   const handleCommentVoteClick = (voteChange) => {
     setNewVotes((currentVotes) => currentVotes + voteChange);
   };
@@ -17,7 +22,11 @@ const CommentsCard = ({ body, votes, author, createdAt }) => {
         <p className="mb-3">{body}</p>
         <button
           className="button is-small pt-2 is-info is-light mx-0 my-0"
-          onClick={() => handleCommentVoteClick(+1)}
+          disabled={disableUpVote}
+          onClick={() => {
+            handleCommentVoteClick(+1);
+            setDisableUpVote(true);
+          }}
         >
           <i className="fas fa-arrow-alt-circle-up fa-2x"></i>
         </button>
@@ -27,7 +36,11 @@ const CommentsCard = ({ body, votes, author, createdAt }) => {
         </span>
         <button
           className="button is-small pt-2 is-info is-light mx-0 my-0"
-          onClick={() => handleCommentVoteClick(-1)}
+          disabled={disableDownVote}
+          onClick={() => {
+            handleCommentVoteClick(-1);
+            setDisableDownVote(true);
+          }}
         >
           <i className="fas fa-arrow-alt-circle-down fa-2x"></i>
         </button>
