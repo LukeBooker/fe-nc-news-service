@@ -63,6 +63,13 @@ const ArticleFull = ({
         </button>
       </Link>
       <button
+        id="topic-button"
+        className="all-topics-button button is-info is-outlined is-rounded mx-2 my-2"
+        onClick={() => handleShowCommentForm()}
+      >
+        Post Comment
+      </button>
+      <button
         className="button is-info is-light mx-2 my-2"
         disabled={disableUpVote}
         onClick={() => {
@@ -86,7 +93,6 @@ const ArticleFull = ({
       >
         <i className="fas fa-arrow-alt-circle-down fa-2x"></i> Vote
       </button>
-      <button onClick={() => handleShowCommentForm()}>Post Comment</button>
     </section>
   );
 };

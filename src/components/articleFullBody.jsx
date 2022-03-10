@@ -13,6 +13,7 @@ const ArticleFullBody = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [showCommentForm, setShowCommentForm] = useState(false);
   const [comments, setComments] = useState([]);
+  const [confirmCommentPost, setConfirmCommentPost] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -25,6 +26,11 @@ const ArticleFullBody = () => {
   const handleShowCommentForm = () => {
     if (showCommentForm) setShowCommentForm(false);
     if (!showCommentForm) setShowCommentForm(true);
+  };
+
+  const handleConfirmCommentPost = () => {
+    if (confirmCommentPost) setConfirmCommentPost(false);
+    if (!confirmCommentPost) setConfirmCommentPost(true);
   };
 
   if (isLoading) return <Loading />;
@@ -43,7 +49,23 @@ const ArticleFullBody = () => {
         handleShowCommentForm={handleShowCommentForm}
       />
       {showCommentForm ? (
-        <PostComment articleId={articleId} setComments={setComments} />
+        <PostComment
+          articleId={articleId}
+          setComments={setComments}
+          setShowCommentForm={setShowCommentForm}
+          setConfirmCommentPost={setConfirmCommentPost}
+        />
+      ) : null}
+      {confirmCommentPost ? (
+        <>
+          <h5 className="is-size-2 has-text-info">Success!</h5>
+          <button
+            class="button is-primary"
+            onClick={() => handleConfirmCommentPost()}
+          >
+            Continue
+          </button>
+        </>
       ) : null}
       <CommentsList
         articleId={articleId}
