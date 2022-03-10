@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import formatTime from "../utils/formatTime";
 import Loading from "./loading";
 import Error from "./error";
+import CommentsList from "./commentsList";
 
 const ArticleFull = () => {
   const { articleId } = useParams();
@@ -40,7 +41,6 @@ const ArticleFull = () => {
   const timeArticleCreated = formatTime(article.created_at);
   if (err) return <Error />;
   if (isLoading) return <Loading />;
-  console.log(article);
   return (
     <>
       <Header topic={article.topic} />
@@ -73,7 +73,7 @@ const ArticleFull = () => {
         >
           <i className="fas fa-arrow-alt-circle-up fa-2x"></i> Vote
         </button>
-        <span className="tag is-size-6 mt-3 mr-2">
+        <span className="tag is-size-6 mt-3 ml-2 mr-2">
           <i className="fas fa-carrot fa-1x mr-1"></i>
           {article.votes + newVotes} votes
         </span>
@@ -84,6 +84,7 @@ const ArticleFull = () => {
           <i className="fas fa-arrow-alt-circle-down fa-2x"></i> Vote
         </button>
       </section>
+      <CommentsList articleId={articleId} />
     </>
   );
 };
