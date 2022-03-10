@@ -28,11 +28,11 @@ const ArticleFull = () => {
 
   const updateVotes = (articleId, voteChange) => {
     api.patchArticleVotes(articleId, voteChange).catch((err) => {
-      // setArticle((currentArticle) => {
-      //   const newArticle = { ...currentArticle };
-      //   newArticle.votes += voteChange;
-      //   return newArticle;
-      // });
+      setArticle((currentArticle) => {
+        const newArticle = { ...currentArticle };
+        newArticle.votes -= voteChange;
+        return newArticle;
+      });
       if (err) setErr(true);
     });
   };
@@ -52,7 +52,7 @@ const ArticleFull = () => {
           by {article.author}
         </h3>
         <span className="tag is-size-6 mr-3 mb-3">
-          <i class="fas fa-carrot fa-1x mr-1"></i>
+          <i className="fas fa-carrot fa-1x mr-1"></i>
           {article.votes + newVotes} votes
         </span>
         <span className="has-text-info">{article.comment_count} comments</span>
@@ -71,17 +71,17 @@ const ArticleFull = () => {
           className="button is-info is-light mx-2 my-2"
           onClick={() => handleVoteClick(+1)}
         >
-          <i class="fas fa-arrow-alt-circle-up fa-2x"></i> Vote
+          <i className="fas fa-arrow-alt-circle-up fa-2x"></i> Vote
         </button>
         <span className="tag is-size-6 mt-3 mr-2">
-          <i class="fas fa-carrot fa-1x mr-1"></i>
+          <i className="fas fa-carrot fa-1x mr-1"></i>
           {article.votes + newVotes} votes
         </span>
         <button
           className="button is-info is-light mx-2 my-2"
           onClick={() => handleVoteClick(-1)}
         >
-          <i class="fas fa-arrow-alt-circle-down fa-2x"></i> Vote
+          <i className="fas fa-arrow-alt-circle-down fa-2x"></i> Vote
         </button>
       </section>
     </>

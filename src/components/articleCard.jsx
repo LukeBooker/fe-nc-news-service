@@ -21,23 +21,18 @@ const ArticleCard = ({ articleId, title, topic, author, createdAt, votes }) => {
           </div>
           <div className="media-content pb-0 mb-0">
             <Link key={articleId} to={`/articles/${articleId}`}>
-              <tag
-                className="is-size-5 is-clickable"
-                id="article-title"
-                href="#"
-              >
+              <p className="is-size-5 is-clickable" id="article-title" href="#">
                 {title}
-              </tag>
+              </p>
             </Link>
             <p className="subtitle is-6">{author}</p>
           </div>
         </div>
         <div className="content">
           <span className="tag mr-3 mb-3">
-            <i class="fas fa-carrot fa-1x mr-1"></i>
+            <i className="fas fa-carrot fa-1x mr-1"></i>
             {votes} votes
           </span>
-
           <a href="#">#{topic}</a>
           <br></br>
           <time>{timeArticleCreated}</time>
