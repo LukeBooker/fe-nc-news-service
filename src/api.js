@@ -33,3 +33,11 @@ export const patchArticleVotes = (articleId, voteChange) => {
       return data.updatedArticle;
     });
 };
+
+export const fetchCommentsByArticleId = (articleId) => {
+  return axios
+    .get(`${baseURL}/articles/${articleId}/comments`)
+    .then(({ data }) => {
+      return data.comments;
+    });
+};
