@@ -67,3 +67,11 @@ h5 {
   width: 5em;
   height: 5em;
 }
+
+#nav-avatar-disabled {
+  visibility: hidden;
+}
+
+#nav-avatar-active {
+  border-radius: 50%;
+}

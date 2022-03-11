@@ -10,6 +10,7 @@ const Nav = () => {
     setLoggedInUser({});
   };
 
+  console.log(loggedInUser);
   return (
     <nav
       className="navbar is-fixed-top has-background-info-light"
@@ -23,8 +24,24 @@ const Nav = () => {
           </a>
         </Link>
         <p className="is-size-5 px-3 py-3 mt-2">
-          {loggedInUser.length > 0 ? `Hello, ${loggedInUser}!` : null}
+          {loggedInUser.length > 0 ? `Hello, ${loggedInUser[0]}!` : null}
         </p>
+        <figure>
+          <img
+            src={
+              loggedInUser.length > 0
+                ? `${loggedInUser[1]}`
+                : "https://cdn-icons-png.flaticon.com/512/2948/2948035.png"
+            }
+            alt={loggedInUser.length > 0 ? "User avatar" : null}
+            id={
+              loggedInUser.length > 0
+                ? "nav-avatar-active"
+                : "nav-avatar-disabled"
+            }
+            class="avatar"
+          ></img>
+        </figure>
         <a
           onClick={() => {
             setIsActive(!isActive);

@@ -16,8 +16,8 @@ const AllUsers = () => {
     });
   }, []);
 
-  const logIn = (username) => {
-    setLoggedInUser(username);
+  const logIn = (username, avatarUrl) => {
+    setLoggedInUser([username, avatarUrl]);
   };
 
   if (isLoading) return <p>users loading</p>;
@@ -44,7 +44,6 @@ const AllUsers = () => {
                     class="avatar"
                   ></img>
                 </figure>
-
                 <p className="has-text-info-dark is-size-5 mr-4 mb-2">
                   @{user.username}
                 </p>
@@ -55,7 +54,7 @@ const AllUsers = () => {
                 id="topic-button"
                 className="button is-info is-outlined is-rounded  mx-2 my-2"
                 onClick={() => {
-                  logIn(user.username);
+                  logIn(user.username, user.avatar_url);
                 }}
               >
                 Log in
