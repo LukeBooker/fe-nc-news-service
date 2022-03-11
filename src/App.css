@@ -61,3 +61,17 @@ h5 {
 #article-title:hover {
   color: hotpink;
 }
+
+.avatar {
+  vertical-align: middle;
+  width: 5em;
+  height: 5em;
+}
+
+#nav-avatar-disabled {
+  visibility: hidden;
+}
+
+#nav-avatar-active {
+  border-radius: 50%;
+}

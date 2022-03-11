@@ -1,7 +1,15 @@
 import { Link } from "react-router-dom";
 import formatTime from "../utils/formatTime";
 
-const ArticleCard = ({ articleId, title, topic, author, createdAt, votes }) => {
+const ArticleCard = ({
+  articleId,
+  title,
+  topic,
+  author,
+  createdAt,
+  votes,
+  comment_count,
+}) => {
   const timeArticleCreated = formatTime(createdAt);
 
   return (
@@ -36,6 +44,7 @@ const ArticleCard = ({ articleId, title, topic, author, createdAt, votes }) => {
           <a href="#">#{topic}</a>
           <br></br>
           <time>{timeArticleCreated}</time>
+          <p>{comment_count}</p>
         </div>
       </div>
     </article>
