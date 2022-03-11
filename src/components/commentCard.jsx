@@ -1,9 +1,12 @@
 import formatTime from "../utils/formatTime";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { UserContext } from "../contexts/userLogIn";
 
 const CommentsCard = ({ body, votes, author, createdAt }) => {
   const timeArticleCreated = formatTime(createdAt);
-  //   console.log(votes);
+  const { loggedInUser, setLoggedInUser } = useContext(UserContext);
+
+  const loggedInUsername = loggedInUser[0];
 
   const [newVotes, setNewVotes] = useState(0);
   const [disableUpVote, setDisableUpVote] = useState(false);
@@ -46,6 +49,16 @@ const CommentsCard = ({ body, votes, author, createdAt }) => {
         </button>
 
         <p className="mt-2">{timeArticleCreated}</p>
+        <button
+          className="button is-small is-danger is-light"
+          id={
+            loggedInUsername === author
+              ? "delete-comment"
+              : "delete-comment-disable"
+          }
+        >
+          delete comment
+        </button>
       </article>
     </>
   );
