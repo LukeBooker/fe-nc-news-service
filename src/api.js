@@ -41,3 +41,20 @@ export const fetchCommentsByArticleId = (articleId) => {
       return data.comments;
     });
 };
+
+export const postComment = (articleId, username, body) => {
+  return axios
+    .post(`${baseURL}/articles/${articleId}/comments`, {
+      username: username,
+      body: body,
+    })
+    .then(({ data }) => {
+      return data.comment;
+    });
+};
+
+export const fetchUsers = () => {
+  return axios.get(`${baseURL}/users`).then(({ data }) => {
+    return data.users;
+  });
+};
