@@ -8,7 +8,7 @@ const formatTime = (timeIso) => {
   const day = date.getDate();
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
-  const dateStr = month + "/" + day + "/" + year;
+  const dateStr = day + "/" + month + "/" + year;
   return `${time} ${dateStr}`;
 };
 
