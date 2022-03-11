@@ -73,5 +73,15 @@ h5 {
 }
 
 #nav-avatar-active {
+  margin-top: 10px;
+  width: 3em;
+  height: 3em;
   border-radius: 50%;
+}
+
+#delete-comment {
+  visibility: visible;
+}
+#delete-comment-disable {
+  visibility: hidden;
 }

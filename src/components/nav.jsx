@@ -10,7 +10,6 @@ const Nav = () => {
     setLoggedInUser({});
   };
 
-  console.log(loggedInUser);
   return (
     <nav
       className="navbar is-fixed-top has-background-info-light"

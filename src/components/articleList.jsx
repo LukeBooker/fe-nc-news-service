@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Loading from "./loading";
 
-const ArticleList = () => {
+const ArticleList = ({ users }) => {
   const { topic } = useParams();
   const [articles, setArticles] = useState("");
   const [isLoading, setIsLoading] = useState(true);
@@ -16,19 +16,11 @@ const ArticleList = () => {
   const [orderBy, setOrderBy] = useState("");
 
   useEffect(() => {
-    // if (!topic) {
     setIsLoading(true);
     api.fetchArticles(topic, sortBy, orderBy).then((articles) => {
       setArticles(articles);
       setIsLoading(false);
     });
-    // } else {
-    //   setIsLoading(true);
-    //   api.fetchArticlesByTopic(topic).then((articles) => {
-    //     setArticles(articles);
-    //     setIsLoading(false);
-    //   });
-    // }
   }, [topic, sortBy, orderBy]);
 
   if (isLoading) return <Loading />;

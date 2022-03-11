@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Header from "./header";
 import { useContext } from "react";
 import { UserContext } from "../contexts/userLogIn";
+import { Link } from "react-router-dom";
 
 const AllUsers = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -49,16 +50,17 @@ const AllUsers = () => {
                 </p>
                 <p className="is-size-6 mr-4 mb-2">{user.name}</p>
               </div>
-
-              <button
-                id="topic-button"
-                className="button is-info is-outlined is-rounded  mx-2 my-2"
-                onClick={() => {
-                  logIn(user.username, user.avatar_url);
-                }}
-              >
-                Log in
-              </button>
+              <Link key="home" to="/">
+                <button
+                  id="topic-button"
+                  className="button is-info is-outlined is-rounded  mx-2 my-2"
+                  onClick={() => {
+                    logIn(user.username, user.avatar_url);
+                  }}
+                >
+                  Log in
+                </button>
+              </Link>
             </article>
           );
         })}
