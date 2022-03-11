@@ -37,13 +37,18 @@ const AllUsers = () => {
               </div>
 
               <div className="media-content ">
-                <figure className="image is-inline-block is-48x48">
+                <figure>
                   <img
-                    src="https://cdn-icons-png.flaticon.com/512/2948/2948035.png"
-                    alt="Placeholder image"
+                    src={user.avatar_url}
+                    alt="User avatar"
+                    class="avatar"
                   ></img>
                 </figure>
-                <p className="is-6 pb-2 mb-0">{user.username}</p>
+
+                <p className="has-text-info-dark is-size-5 mr-4 mb-2">
+                  @{user.username}
+                </p>
+                <p className="is-size-6 mr-4 mb-2">{user.name}</p>
               </div>
 
               <button

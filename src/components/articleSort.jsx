@@ -1,25 +1,13 @@
-const ArticleSort = ({
-  topic,
-  setDateSort,
-  setCommentsSort,
-  setVotesSort,
-  setFlipSort,
-}) => {
-  const handleOnClick = (sortBy) => {
-    if (sortBy === "date") setDateSort(true);
-    if (sortBy === "comment") setCommentsSort(true);
-    if (sortBy === "votes") setVotesSort(true);
-    if (sortBy === "flip") setFlipSort(true);
-  };
-
+const ArticleSort = ({ setSortBy, setOrderBy }) => {
   return (
     <>
       <p class="is-centered">Sort by</p>
       <div class="buttons is-centered">
         <button
           class="button is-info"
+          // link
           onClick={() => {
-            handleOnClick("date");
+            setSortBy("created_at");
           }}
         >
           date
@@ -27,7 +15,7 @@ const ArticleSort = ({
         <button
           class="button is-info"
           onClick={() => {
-            handleOnClick("comment");
+            setSortBy("comment_count");
           }}
         >
           comment count
@@ -35,7 +23,7 @@ const ArticleSort = ({
         <button
           class="button is-info"
           onClick={() => {
-            handleOnClick("votes");
+            setSortBy("votes");
           }}
         >
           votes
@@ -43,10 +31,18 @@ const ArticleSort = ({
         <button
           class="button is-info"
           onClick={() => {
-            handleOnClick("flip");
+            setOrderBy("asc");
           }}
         >
-          flip order
+          order asc
+        </button>
+        <button
+          class="button is-info"
+          onClick={() => {
+            setOrderBy("desc");
+          }}
+        >
+          order desc
         </button>
       </div>
     </>

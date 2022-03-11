@@ -11,28 +11,25 @@ const ArticleList = () => {
   const { topic } = useParams();
   const [articles, setArticles] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-  const [dateSort, setDateSort] = useState("");
-  const [commentsSort, setCommentsSort] = useState("");
-  const [votesSort, setVotesSort] = useState("");
-  const [flipSort, setFlipSort] = useState("");
 
-  console.log(dateSort, commentsSort, votesSort, flipSort);
+  const [sortBy, setSortBy] = useState("");
+  const [orderBy, setOrderBy] = useState("");
 
   useEffect(() => {
-    if (!topic) {
-      setIsLoading(true);
-      api.fetchArticles().then((articles) => {
-        setArticles(articles);
-        setIsLoading(false);
-      });
-    } else {
-      setIsLoading(true);
-      api.fetchArticlesByTopic(topic).then((articles) => {
-        setArticles(articles);
-        setIsLoading(false);
-      });
-    }
-  }, [topic]);
+    // if (!topic) {
+    setIsLoading(true);
+    api.fetchArticles(topic, sortBy, orderBy).then((articles) => {
+      setArticles(articles);
+      setIsLoading(false);
+    });
+    // } else {
+    //   setIsLoading(true);
+    //   api.fetchArticlesByTopic(topic).then((articles) => {
+    //     setArticles(articles);
+    //     setIsLoading(false);
+    //   });
+    // }
+  }, [topic, sortBy, orderBy]);
 
   if (isLoading) return <Loading />;
 
@@ -42,15 +39,21 @@ const ArticleList = () => {
       <ArticleByTopic />
       <ArticleSort
         topic={topic}
-        setDateSort={setDateSort}
-        setCommentsSort={setCommentsSort}
-        setVotesSort={setVotesSort}
-        setFlipSort={setFlipSort}
+        setSortBy={setSortBy}
+        setOrderBy={setOrderBy}
       />
       <section className="section pt-1">
         <div className="container">
           {articles.map(
-            ({ article_id, title, topic, author, created_at, votes }) => {
+            ({
+              article_id,
+              title,
+              topic,
+              author,
+              created_at,
+              votes,
+              comment_count,
+            }) => {
               return (
                 <ArticleCard
                   key={article_id}
@@ -60,6 +63,7 @@ const ArticleList = () => {
                   author={author}
                   createdAt={created_at}
                   votes={votes}
+                  comment_count={comment_count}
                 />
               );
             }

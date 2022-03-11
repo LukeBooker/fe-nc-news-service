@@ -2,11 +2,11 @@ import axios from "axios";
 
 const baseURL = "https://northcoders-news-project.herokuapp.com/api";
 
-export const fetchArticles = () => {
-  return axios.get(`${baseURL}/articles`).then(({ data }) => {
-    return data.articles;
-  });
-};
+// export const fetchArticles = () => {
+//   return axios.get(`${baseURL}/articles`).then(({ data }) => {
+//     return data.articles;
+//   });
+// };
 
 export const fetchTopics = () => {
   return axios.get(`${baseURL}/topics`).then(({ data }) => {
@@ -57,4 +57,14 @@ export const fetchUsers = () => {
   return axios.get(`${baseURL}/users`).then(({ data }) => {
     return data.users;
   });
+};
+
+export const fetchArticles = (topic, sortBy, orderBy) => {
+  return axios
+    .get(`${baseURL}/articles`, {
+      params: { topic: topic, sort_by: sortBy, order: orderBy },
+    })
+    .then(({ data }) => {
+      return data.articles;
+    });
 };
