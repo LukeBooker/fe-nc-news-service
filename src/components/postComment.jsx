@@ -14,10 +14,10 @@ const PostComment = ({
   const [body, setBody] = useState("");
 
   const handleSubmit = (loggedInUser, body) => {
-    if (typeof loggedInUser === "object") return setErr("user");
+    if (!loggedInUser[0]) return setErr("user");
     if (!body) return setErr("body");
     api
-      .postComment(articleId, loggedInUser, body)
+      .postComment(articleId, loggedInUser[0], body)
       .then((newPostedComment) => {
         setComments((currentComments) => {
           const newComments = [newPostedComment, ...currentComments];

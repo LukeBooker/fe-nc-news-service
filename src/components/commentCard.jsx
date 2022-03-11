@@ -1,16 +1,40 @@
 import formatTime from "../utils/formatTime";
 import { useState, useContext } from "react";
 import { UserContext } from "../contexts/userLogIn";
+import * as api from "../api";
 
-const CommentsCard = ({ body, votes, author, createdAt }) => {
+const CommentsCard = ({
+  body,
+  votes,
+  author,
+  createdAt,
+  commentId,
+  setComments,
+}) => {
   const timeArticleCreated = formatTime(createdAt);
   const { loggedInUser, setLoggedInUser } = useContext(UserContext);
-
   const loggedInUsername = loggedInUser[0];
+  const [err, setErr] = useState();
 
   const [newVotes, setNewVotes] = useState(0);
   const [disableUpVote, setDisableUpVote] = useState(false);
   const [disableDownVote, setDisableDownVote] = useState(false);
+
+  const handleCommentDeleteClick = (commentId) => {
+    api
+      .deleteCommentById(commentId)
+      .then(() => {
+        setComments((currentComments) => {
+          const newComments = currentComments.filter(
+            (comment) => comment.comment_id !== commentId
+          );
+          return newComments;
+        });
+      })
+      .catch((err) => {
+        if (err) setErr(true);
+      });
+  };
 
   const handleCommentVoteClick = (voteChange) => {
     setNewVotes((currentVotes) => currentVotes + voteChange);
@@ -18,7 +42,7 @@ const CommentsCard = ({ body, votes, author, createdAt }) => {
 
   return (
     <>
-      <article className="box mx-3 column is-one-quarter has-background-warning-light">
+      <article className="box mx-3 pb-0 column is-one-quarter has-background-warning-light">
         <p className="has-text-info-dark is-size-5 has-text-right mr-4 mb-2">
           @{author}
         </p>
@@ -56,9 +80,18 @@ const CommentsCard = ({ body, votes, author, createdAt }) => {
               ? "delete-comment"
               : "delete-comment-disable"
           }
+          onClick={() => {
+            handleCommentDeleteClick(commentId);
+          }}
         >
           delete comment
         </button>
+        <p
+          className="is-size-6 has-text-danger mx-0 my-0 px-0 py-0"
+          id={err ? "comment-error" : "no-comment-error"}
+        >
+          Comment not deleted. Please try again.
+        </p>
       </article>
     </>
   );

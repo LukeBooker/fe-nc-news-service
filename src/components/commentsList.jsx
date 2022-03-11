@@ -17,17 +17,21 @@ const CommentsList = ({ articleId, setComments, comments }) => {
   return (
     <>
       <section className="mt-5 columns is-center is-multiline is-variable is-centered">
-        {comments.map(({ body, votes, author, created_at }, index) => {
-          return (
-            <CommentCard
-              key={index}
-              author={author}
-              body={body}
-              createdAt={created_at}
-              votes={votes}
-            />
-          );
-        })}
+        {comments.map(
+          ({ body, votes, author, created_at, comment_id }, index) => {
+            return (
+              <CommentCard
+                setComments={setComments}
+                commentId={comment_id}
+                key={index}
+                author={author}
+                body={body}
+                createdAt={created_at}
+                votes={votes}
+              />
+            );
+          }
+        )}
       </section>
     </>
   );
