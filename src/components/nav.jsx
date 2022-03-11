@@ -4,10 +4,11 @@ import { useContext, useState } from "react";
 import { UserContext } from "../contexts/userLogIn";
 
 const Nav = () => {
-  const [isActive, setisActive] = React.useState(false);
+  const [isActive, setIsActive] = useState(false);
   const { loggedInUser, setLoggedInUser } = useContext(UserContext);
-  const [logInOrOut, setlogInOrOut] = useState(false);
-  console.log(loggedInUser, "in nav");
+  const handleLogOut = () => {
+    setLoggedInUser({});
+  };
 
   return (
     <nav
@@ -16,12 +17,17 @@ const Nav = () => {
       aria-label="main navigation"
     >
       <div className="navbar-brand">
-        <a className="navbar-item" href="/">
-          <h5 className="has-text-info ml-3">nc news</h5>
-        </a>
+        <Link key="home" to="/">
+          <a className="navbar-item">
+            <h5 className="has-text-info ml-3">nc news</h5>
+          </a>
+        </Link>
+        <p className="is-size-5 px-3 py-3 mt-2">
+          {loggedInUser.length > 0 ? `Hello, ${loggedInUser}!` : null}
+        </p>
         <a
           onClick={() => {
-            setisActive(!isActive);
+            setIsActive(!isActive);
           }}
           role="button"
           className={`navbar-burger burger ${isActive ? "is-active" : ""}`}
@@ -40,17 +46,20 @@ const Nav = () => {
           <a className="navbar-item">Article of the day</a>
           <a className="navbar-item">About</a>
           {/* log in */}
-          <Link key="log-in" to="/users">
-            <a className="navbar-item button is-normal is-responsive has-background-info has-text-light mt-4 mr-3">
-              <strong>Log in</strong>
-            </a>
+          <Link key="log-in" to={loggedInUser.length > 0 ? "/" : "/users"}>
+            <button
+              className={
+                loggedInUser.length > 0
+                  ? "navbar-item has-text-weight-bold button is-normal is-responsive has-background-light has-text-info mt-4 mr-3"
+                  : "navbar-item button is-normal is-responsive has-background-info has-text-light mt-4 mr-3"
+              }
+              onClick={() => {
+                if (loggedInUser.length > 0) handleLogOut();
+              }}
+            >
+              <strong>{loggedInUser.length > 0 ? "Log out" : "Log in"}</strong>
+            </button>
           </Link>
-          {/* log out */}
-          {/* <Link key="log-out" to="/users">
-            <a className="navbar-item button is-normal is-responsive has-background-light has-text-info mt-4 mr-3">
-              <strong>Log out</strong>
-            </a>
-          </Link> */}
         </div>
       </div>
     </nav>

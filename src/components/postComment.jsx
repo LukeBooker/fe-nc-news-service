@@ -1,5 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import * as api from "../api";
+import { useContext } from "react";
+import { UserContext } from "../contexts/userLogIn";
 
 const PostComment = ({
   articleId,
@@ -7,14 +9,15 @@ const PostComment = ({
   setShowCommentForm,
   setConfirmCommentPost,
 }) => {
-  const [username, setUsername] = useState("");
-  const [err, setErr] = useState();
-
+  const { loggedInUser, setLoggedInUser } = useContext(UserContext);
+  const [err, setErr] = useState("");
   const [body, setBody] = useState("");
-  const handleSubmit = (username, body) => {
-    if (!username || !body) return setErr(true);
+
+  const handleSubmit = (loggedInUser, body) => {
+    if (typeof loggedInUser === "object") return setErr("user");
+    if (!body) return setErr("body");
     api
-      .postComment(articleId, username, body)
+      .postComment(articleId, loggedInUser, body)
       .then((newPostedComment) => {
         setComments((currentComments) => {
           const newComments = [newPostedComment, ...currentComments];
@@ -24,25 +27,25 @@ const PostComment = ({
         setConfirmCommentPost(true);
       })
       .catch((err) => {
-        if (err) setErr(true);
+        if (err) setErr("server problem");
       });
   };
-  if (err) return <p>Something went wrong. Please try again.</p>;
+  if (err === "server problem")
+    return (
+      <p className="is-size-4 my-6 py-5">
+        Something went wrong. Please try again.
+      </p>
+    );
+  if (err === "body")
+    return <p className="is-size-4 my-6 py-5">Please enter a comment.</p>;
+  if (err === "user")
+    return (
+      <p className="is-size-4 my-6 py-5">Please log in to post a commment.</p>
+    );
 
   return (
     <>
       <form class="field mt-4 mx-6 px-6">
-        <label class="label">Username</label>
-        <div class="control">
-          <input
-            class="input"
-            type="text"
-            placeholder="e.g luckylion7"
-            onChange={(e) => {
-              setUsername(e.target.value);
-            }}
-          ></input>
-        </div>
         <label class="label mt-3">Comment</label>
         <div class="control">
           <textarea
@@ -57,7 +60,7 @@ const PostComment = ({
         <p class="control mt-4">
           <a
             class="button is-primary"
-            onClick={() => handleSubmit(username, body)}
+            onClick={() => handleSubmit(loggedInUser, body)}
             type="submit"
             value="Submit"
           >
