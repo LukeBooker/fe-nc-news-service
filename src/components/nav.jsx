@@ -1,8 +1,14 @@
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import React from "react";
+import { useContext, useState } from "react";
+import { UserContext } from "../contexts/userLogIn";
 
 const Nav = () => {
   const [isActive, setisActive] = React.useState(false);
+  const { loggedInUser, setLoggedInUser } = useContext(UserContext);
+  const [logInOrOut, setlogInOrOut] = useState(false);
+  console.log(loggedInUser, "in nav");
+
   return (
     <nav
       className="navbar is-fixed-top has-background-info-light"
@@ -33,9 +39,18 @@ const Nav = () => {
           <a className="navbar-item">Post an article</a>
           <a className="navbar-item">Article of the day</a>
           <a className="navbar-item">About</a>
-          <a className="navbar-item button is-normal is-responsive has-background-info has-text-light mt-4 mr-3">
-            <strong>Log in</strong>
-          </a>
+          {/* log in */}
+          <Link key="log-in" to="/users">
+            <a className="navbar-item button is-normal is-responsive has-background-info has-text-light mt-4 mr-3">
+              <strong>Log in</strong>
+            </a>
+          </Link>
+          {/* log out */}
+          {/* <Link key="log-out" to="/users">
+            <a className="navbar-item button is-normal is-responsive has-background-light has-text-info mt-4 mr-3">
+              <strong>Log out</strong>
+            </a>
+          </Link> */}
         </div>
       </div>
     </nav>
