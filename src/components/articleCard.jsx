@@ -22,7 +22,7 @@ const ArticleCard = ({
           <div className="media-left">
             <figure className="image is-48x48">
               <img
-                src="https://cdn-icons-png.flaticon.com/512/2948/2948035.png"
+                src="https://cdn-icons-png.flaticon.com/512/81/81460.png"
                 alt="Placeholder image"
               ></img>
             </figure>
@@ -41,10 +41,12 @@ const ArticleCard = ({
             <i className="fas fa-carrot fa-1x mr-1"></i>
             {votes} votes
           </span>
-          <a href="#">#{topic}</a>
+          <Link key={articleId} to={`/topic/${topic}`}>
+            <a>#{topic}</a>
+          </Link>
           <br></br>
           <time>{timeArticleCreated}</time>
-          <p>{comment_count}</p>
+          <p className="has-text-grey">{comment_count} comments</p>
         </div>
       </div>
     </article>

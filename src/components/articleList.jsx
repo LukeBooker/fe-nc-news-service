@@ -31,7 +31,9 @@ const ArticleList = ({ users }) => {
       <ArticleByTopic />
       <ArticleSort
         topic={topic}
+        sortBy={sortBy}
         setSortBy={setSortBy}
+        orderBy={orderBy}
         setOrderBy={setOrderBy}
       />
       <section className="section pt-1">

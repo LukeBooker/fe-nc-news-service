@@ -66,8 +66,8 @@ const Nav = () => {
             <button
               className={
                 loggedInUser.length > 0
-                  ? "navbar-item has-text-weight-bold button is-normal is-responsive has-background-light has-text-info mt-4 mr-3"
-                  : "navbar-item button is-normal is-responsive has-background-info has-text-light mt-4 mr-3"
+                  ? "navbar-item columns is-centered my-0 has-text-weight-bold button is-normal is-responsive has-background-light has-text-info "
+                  : "navbar-item columns is-centered my-0 button is-normal is-responsive has-background-info has-text-light "
               }
               onClick={() => {
                 if (loggedInUser.length > 0) handleLogOut();

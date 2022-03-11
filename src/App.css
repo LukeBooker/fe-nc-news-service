@@ -85,3 +85,11 @@ h5 {
 #delete-comment-disable {
   visibility: hidden;
 }
+
+#no-comment-error {
+  visibility: hidden;
+}
+
+#comment-error {
+  visibility: visible;
+}

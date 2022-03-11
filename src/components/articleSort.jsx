@@ -1,11 +1,12 @@
-const ArticleSort = ({ setSortBy, setOrderBy }) => {
+const ArticleSort = ({ sortBy, setSortBy, orderBy, setOrderBy }) => {
+  console.log(orderBy);
   return (
     <>
       <p class="is-centered">Sort by</p>
       <div class="buttons is-centered">
         <button
           class="button is-info"
-          // link
+          disabled={sortBy === "created_at" ? "disabled" : ""}
           onClick={() => {
             setSortBy("created_at");
           }}
@@ -13,6 +14,7 @@ const ArticleSort = ({ setSortBy, setOrderBy }) => {
           date
         </button>
         <button
+          disabled={sortBy === "comment_count" ? "disabled" : ""}
           class="button is-info"
           onClick={() => {
             setSortBy("comment_count");
@@ -21,6 +23,7 @@ const ArticleSort = ({ setSortBy, setOrderBy }) => {
           comment count
         </button>
         <button
+          disabled={sortBy === "votes" ? "disabled" : ""}
           class="button is-info"
           onClick={() => {
             setSortBy("votes");
@@ -29,6 +32,7 @@ const ArticleSort = ({ setSortBy, setOrderBy }) => {
           votes
         </button>
         <button
+          disabled={orderBy === "asc" ? "disabled" : ""}
           class="button is-info"
           onClick={() => {
             setOrderBy("asc");
@@ -37,6 +41,7 @@ const ArticleSort = ({ setSortBy, setOrderBy }) => {
           order asc
         </button>
         <button
+          disabled={orderBy === "desc" ? "disabled" : ""}
           class="button is-info"
           onClick={() => {
             setOrderBy("desc");
