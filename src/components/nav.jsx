@@ -18,9 +18,9 @@ const Nav = () => {
     >
       <div className="navbar-brand">
         <Link key="home" to="/">
-          <a className="navbar-item">
+          <span className="navbar-item">
             <h5 className="has-text-info ml-3">nc news</h5>
-          </a>
+          </span>
         </Link>
         <p className="is-size-5 px-3 py-3 mt-2">
           {loggedInUser.length > 0 ? `Hello, ${loggedInUser[0]}!` : null}
@@ -38,15 +38,15 @@ const Nav = () => {
                 ? "nav-avatar-active"
                 : "nav-avatar-disabled"
             }
-            class="avatar"
+            className="avatar"
           ></img>
         </figure>
-        <a
+        <span
           onClick={() => {
             setIsActive(!isActive);
           }}
           role="button"
-          className={`navbar-burger burger ${isActive ? "is-active" : ""}`}
+          className={`navbar-burger burger mr-2 ${isActive ? "is-active" : ""}`}
           aria-label="menu"
           aria-expanded="false"
           data-target="navbar"
@@ -54,28 +54,34 @@ const Nav = () => {
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
-        </a>
+        </span>
       </div>
-      <div id="navbar" className={`navbar-menu ${isActive ? "is-active" : ""}`}>
+      <div
+        id="navbar"
+        className={`navbar-menu ${isActive ? "is-active" : ""} mr-3`}
+      >
         <div className="navbar-end">
-          <a className="navbar-item">Post an article</a>
-          <a className="navbar-item">Article of the day</a>
-          <a className="navbar-item">About</a>
-          {/* log in */}
-          <Link key="log-in" to={loggedInUser.length > 0 ? "/" : "/users"}>
-            <button
-              className={
-                loggedInUser.length > 0
-                  ? "navbar-item columns is-centered my-0 has-text-weight-bold button is-normal is-responsive has-background-light has-text-info "
-                  : "navbar-item columns is-centered my-0 button is-normal is-responsive has-background-info has-text-light "
-              }
-              onClick={() => {
-                if (loggedInUser.length > 0) handleLogOut();
-              }}
-            >
-              <strong>{loggedInUser.length > 0 ? "Log out" : "Log in"}</strong>
-            </button>
-          </Link>
+          <span className="navbar-item">Post an article</span>
+          <span className="navbar-item">Article of the day</span>
+          <span className="navbar-item">About</span>
+          <span className="navbar-item">
+            <Link key="log-in" to={loggedInUser.length > 0 ? "/" : "/users"}>
+              <span
+                className={
+                  loggedInUser.length > 0
+                    ? "navbar-item columns is-centered my-0 has-text-weight-bold button is-normal is-responsive has-background-light has-text-info "
+                    : "navbar-item columns is-centered my-0 button is-normal is-responsive has-background-info has-text-light "
+                }
+                onClick={() => {
+                  if (loggedInUser.length > 0) handleLogOut();
+                }}
+              >
+                <strong>
+                  {loggedInUser.length > 0 ? "Log out" : "Log in"}
+                </strong>
+              </span>
+            </Link>{" "}
+          </span>
         </div>
       </div>
     </nav>

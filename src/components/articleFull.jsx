@@ -1,4 +1,4 @@
-import Error from "./error";
+import ErrorMessage from "./errorMessage";
 import formatTime from "../utils/formatTime";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -19,7 +19,7 @@ const ArticleFull = ({
   const [disableUpVote, setDisableUpVote] = useState(false);
   const [disableDownVote, setDisableDownVote] = useState(false);
   const timeArticleCreated = formatTime(createdAt);
-  const [err, setErr] = useState();
+  const [err, setErr] = useState(null);
 
   const handleVoteClick = (voteChange) => {
     setNewVotes((currentVotes) => currentVotes + voteChange);
@@ -36,7 +36,7 @@ const ArticleFull = ({
       if (err) setErr(true);
     });
   };
-  if (err) return <Error />;
+  if (err) return <ErrorMessage />;
 
   return (
     <section className="box content mx-5 my-2">
@@ -74,7 +74,8 @@ const ArticleFull = ({
         disabled={disableUpVote}
         onClick={() => {
           handleVoteClick(+1);
-          setDisableUpVote(true);
+          if (newVotes === 0) setDisableUpVote(true);
+          setDisableDownVote(false);
         }}
       >
         <i className="fas fa-arrow-alt-circle-up fa-2x"></i> Vote
@@ -88,7 +89,8 @@ const ArticleFull = ({
         disabled={disableDownVote}
         onClick={() => {
           handleVoteClick(-1);
-          setDisableDownVote(true);
+          if (newVotes === 0) setDisableDownVote(true);
+          setDisableUpVote(false);
         }}
       >
         <i className="fas fa-arrow-alt-circle-down fa-2x"></i> Vote

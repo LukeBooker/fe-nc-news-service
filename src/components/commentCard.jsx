@@ -52,7 +52,8 @@ const CommentsCard = ({
           disabled={disableUpVote}
           onClick={() => {
             handleCommentVoteClick(+1);
-            setDisableUpVote(true);
+            if (newVotes === 0) setDisableUpVote(true);
+            setDisableDownVote(false);
           }}
         >
           <i className="fas fa-arrow-alt-circle-up fa-2x"></i>
@@ -66,7 +67,8 @@ const CommentsCard = ({
           disabled={disableDownVote}
           onClick={() => {
             handleCommentVoteClick(-1);
-            setDisableDownVote(true);
+            if (newVotes === 0) setDisableDownVote(true);
+            setDisableUpVote(false);
           }}
         >
           <i className="fas fa-arrow-alt-circle-down fa-2x"></i>

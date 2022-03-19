@@ -26,7 +26,7 @@ const AllUsers = () => {
   return (
     <>
       <Header />
-      <section class="is-multiline columns is-centered">
+      <section className="is-multiline columns is-centered">
         {users.map((user, index) => {
           return (
             <article
@@ -42,7 +42,7 @@ const AllUsers = () => {
                   <img
                     src={user.avatar_url}
                     alt="User avatar"
-                    class="avatar"
+                    className="avatar"
                   ></img>
                 </figure>
                 <p className="has-text-info-dark is-size-5 mr-4 mb-2">

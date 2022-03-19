@@ -42,7 +42,7 @@ const ArticleCard = ({
             {votes} votes
           </span>
           <Link key={articleId} to={`/topic/${topic}`}>
-            <a>#{topic}</a>
+            <span>#{topic}</span>
           </Link>
           <br></br>
           <time>{timeArticleCreated}</time>

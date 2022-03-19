@@ -1,4 +1,4 @@
-const Error = () => {
+const ErrorMessage = () => {
   return (
     <section>
       <div className="block mt-6 pt-6">
@@ -11,4 +11,4 @@ const Error = () => {
   );
 };
 
-export default Error;
+export default ErrorMessage;

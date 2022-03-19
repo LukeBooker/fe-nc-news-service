@@ -8,11 +8,11 @@ export const fetchTopics = () => {
   });
 };
 
-export const fetchArticlesByTopic = (topic) => {
-  return axios.get(`${baseURL}/articles?topic=${topic}`).then(({ data }) => {
-    return data.articles;
-  });
-};
+// export const fetchArticlesByTopic = (topic) => {
+//   return axios.get(`${baseURL}/articles?topic=${topic}`).then(({ data }) => {
+//     return data.articles;
+//   });
+// };
 
 export const fetchArticleById = (articleId) => {
   return axios.get(`${baseURL}/articles/${articleId}`).then(({ data }) => {
@@ -61,6 +61,9 @@ export const fetchArticles = (topic, sortBy, orderBy) => {
     .then(({ data }) => {
       return data.articles;
     });
+  // .catch((err) => {
+  //   return err;
+  // });
 };
 
 export const deleteCommentById = (commentId) => {
