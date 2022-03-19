@@ -45,11 +45,11 @@ const PostComment = ({
 
   return (
     <>
-      <form class="field mt-4 mx-6 px-6">
-        <label class="label mt-3">Comment</label>
-        <div class="control">
+      <form className="field mt-4 mx-6 px-6">
+        <label className="label mt-3">Comment</label>
+        <div className="control">
           <textarea
-            class="textarea"
+            className="textarea"
             type="text"
             placeholder="Enter your comment"
             onChange={(e) => {
@@ -57,9 +57,9 @@ const PostComment = ({
             }}
           ></textarea>
         </div>
-        <p class="control mt-4">
+        <p className="control mt-4">
           <a
-            class="button is-primary"
+            className="button is-primary"
             onClick={() => handleSubmit(loggedInUser, body)}
             type="submit"
             value="Submit"

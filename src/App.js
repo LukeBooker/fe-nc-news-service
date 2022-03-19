@@ -6,6 +6,7 @@ import ArticleFullBody from "./components/articleFullBody";
 import { UserContext } from "./contexts/userLogIn";
 import AllUsers from "./components/allUsers";
 import { useState } from "react";
+import ErrorPage from "./components/errorPage";
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
@@ -16,6 +17,7 @@ function App() {
         {
           <Routes>
             <Route path="/" element={<ArticleList />} />
+            <Route path="/*" element={<ErrorPage />} />
             <Route path="/users" element={<AllUsers />} />
             <Route path="/topic/:topic" element={<ArticleList />} />
             <Route path="/articles/:articleId" element={<ArticleFullBody />} />

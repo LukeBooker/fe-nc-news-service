@@ -6,6 +6,7 @@ import Loading from "./loading";
 import CommentsList from "./commentsList";
 import PostComment from "./postComment";
 import ArticleFull from "./articleFull";
+import ErrorPage from "./errorPage";
 
 const ArticleFullBody = () => {
   const { articleId } = useParams();
@@ -14,13 +15,19 @@ const ArticleFullBody = () => {
   const [showCommentForm, setShowCommentForm] = useState(false);
   const [comments, setComments] = useState([]);
   const [confirmCommentPost, setConfirmCommentPost] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
-    api.fetchArticleById(articleId).then((article) => {
-      setArticle(article);
-      setIsLoading(false);
-    });
+    api
+      .fetchArticleById(articleId)
+      .then((article) => {
+        setArticle(article);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError({ err });
+      });
   }, []);
 
   const handleShowCommentForm = () => {
@@ -32,7 +39,9 @@ const ArticleFullBody = () => {
     if (confirmCommentPost) setConfirmCommentPost(false);
     if (!confirmCommentPost) setConfirmCommentPost(true);
   };
-
+  if (error) {
+    return <ErrorPage error="article" />;
+  }
   if (isLoading) return <Loading />;
   return (
     <>
@@ -60,7 +69,7 @@ const ArticleFullBody = () => {
         <>
           <h5 className="is-size-2 has-text-info">Success!</h5>
           <button
-            class="button is-primary"
+            className="button is-primary"
             onClick={() => handleConfirmCommentPost()}
           >
             Continue

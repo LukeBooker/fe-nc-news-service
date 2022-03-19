@@ -6,22 +6,34 @@ import * as api from "../api";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Loading from "./loading";
+import ErrorPage from "./errorPage";
 
 const ArticleList = ({ users }) => {
   const { topic } = useParams();
   const [articles, setArticles] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const [sortBy, setSortBy] = useState("");
   const [orderBy, setOrderBy] = useState("");
 
   useEffect(() => {
     setIsLoading(true);
-    api.fetchArticles(topic, sortBy, orderBy).then((articles) => {
-      setArticles(articles);
-      setIsLoading(false);
-    });
+    // setError(null);
+    api
+      .fetchArticles(topic, sortBy, orderBy)
+      .then((articles) => {
+        setArticles(articles);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError({ err });
+      });
   }, [topic, sortBy, orderBy]);
+
+  if (error) {
+    return <ErrorPage error="topic" />;
+  }
 
   if (isLoading) return <Loading />;
 

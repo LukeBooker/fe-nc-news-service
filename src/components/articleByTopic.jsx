@@ -25,7 +25,7 @@ const ArticleByTopic = () => {
           <Link key="all" to={`/`}>
             <button
               id="topic-button"
-              className="all-topics-button button is-info is-outlined is-rounded mx-2 my-2"
+              className="all-topics-button button is-info is-outlined is-rounded is-medium mx-2 my-2"
             >
               All topics
             </button>
@@ -35,7 +35,7 @@ const ArticleByTopic = () => {
               <Link key={slug} to={`/topic/${slug}`}>
                 <button
                   id="topic-button"
-                  className="button is-info is-outlined is-rounded  mx-2 my-2"
+                  className="button is-info is-outlined is-rounded is-medium mx-2 my-2"
                 >
                   {slug}
                 </button>
