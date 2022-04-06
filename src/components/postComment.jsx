@@ -9,7 +9,7 @@ const PostComment = ({
   setShowCommentForm,
   setConfirmCommentPost,
 }) => {
-  const { loggedInUser, setLoggedInUser } = useContext(UserContext);
+  const { loggedInUser } = useContext(UserContext);
   const [err, setErr] = useState("");
   const [body, setBody] = useState("");
 
@@ -40,7 +40,7 @@ const PostComment = ({
     return <p className="is-size-4 my-6 py-5">Please enter a comment.</p>;
   if (err === "user")
     return (
-      <p className="is-size-4 my-6 py-5">Please log in to post a commment.</p>
+      <p className="is-size-4 my-6 py-5">Please log in to post a comment.</p>
     );
 
   return (
@@ -58,14 +58,14 @@ const PostComment = ({
           ></textarea>
         </div>
         <p className="control mt-4">
-          <a
+          <button
             className="button is-primary"
             onClick={() => handleSubmit(loggedInUser, body)}
             type="submit"
             value="Submit"
           >
             Submit
-          </a>
+          </button>
         </p>
       </form>
     </>

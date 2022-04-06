@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const AllUsers = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [users, setUsers] = useState("");
-  const { loggedInUser, setLoggedInUser } = useContext(UserContext);
+  const { setLoggedInUser } = useContext(UserContext);
 
   useEffect(() => {
     api.fetchUsers().then((usernames) => {

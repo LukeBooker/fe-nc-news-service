@@ -12,7 +12,7 @@ const CommentsCard = ({
   setComments,
 }) => {
   const timeArticleCreated = formatTime(createdAt);
-  const { loggedInUser, setLoggedInUser } = useContext(UserContext);
+  const { loggedInUser } = useContext(UserContext);
   const loggedInUsername = loggedInUser[0];
   const [err, setErr] = useState();
 

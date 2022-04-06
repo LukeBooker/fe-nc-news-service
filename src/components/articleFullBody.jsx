@@ -28,7 +28,7 @@ const ArticleFullBody = () => {
       .catch((err) => {
         setError({ err });
       });
-  }, []);
+  }, [articleId]);
 
   const handleShowCommentForm = () => {
     if (showCommentForm) setShowCommentForm(false);
