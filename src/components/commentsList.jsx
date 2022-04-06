@@ -10,7 +10,7 @@ const CommentsList = ({ articleId, setComments, comments }) => {
       setComments(comments);
       setIsLoading(false);
     });
-  }, []);
+  });
 
   if (isLoading) return <p>comments loading</p>;
 

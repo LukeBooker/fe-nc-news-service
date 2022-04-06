@@ -23,7 +23,7 @@ const ArticleCard = ({
             <figure className="image is-48x48">
               <img
                 src="https://cdn-icons-png.flaticon.com/512/81/81460.png"
-                alt="Placeholder image"
+                alt="Placeholder"
               ></img>
             </figure>
           </div>

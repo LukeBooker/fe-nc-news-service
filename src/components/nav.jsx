@@ -32,7 +32,7 @@ const Nav = () => {
                 ? `${loggedInUser[1]}`
                 : "https://cdn-icons-png.flaticon.com/512/2948/2948035.png"
             }
-            alt={loggedInUser.length > 0 ? "User avatar" : null}
+            alt={loggedInUser.length > 0 ? "User avatar" : ""}
             id={
               loggedInUser.length > 0
                 ? "nav-avatar-active"
