@@ -59,12 +59,12 @@ const PostComment = ({
         </div>
         <p className="control mt-4">
           <button
+            type="button"
+            value="Submit"
             className="button is-primary"
             onClick={() => handleSubmit(loggedInUser, body)}
-            type="submit"
-            value="Submit"
           >
-            Submit
+            Post comment!
           </button>
         </p>
       </form>
