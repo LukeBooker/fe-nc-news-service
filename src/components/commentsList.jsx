@@ -6,11 +6,17 @@ const CommentsList = ({ articleId, setComments, comments }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    let mounted = true;
     api.fetchCommentsByArticleId(articleId).then((comments) => {
-      setComments(comments);
-      setIsLoading(false);
+      if (mounted) {
+        setComments(comments);
+        setIsLoading(false);
+      }
     });
-  });
+    return () => {
+      mounted = false;
+    };
+  }, [articleId]);
 
   if (isLoading) return <p>comments loading</p>;
 

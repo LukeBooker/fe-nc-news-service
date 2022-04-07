@@ -10,6 +10,9 @@ const Nav = () => {
     setLoggedInUser({});
   };
 
+  const date = new Date();
+  const day = date.getDate();
+
   return (
     <nav
       className="navbar is-fixed-top has-background-info-light"
@@ -62,8 +65,17 @@ const Nav = () => {
       >
         <div className="navbar-end">
           <span className="navbar-item">Post an article</span>
-          <span className="navbar-item">Article of the day</span>
-          <span className="navbar-item">About</span>
+
+          <Link
+            className="navbar-item"
+            key="article-of-day"
+            to={`/articles/${day}`}
+          >
+            {" "}
+            <span className="navbar-item">Article of the day</span>
+          </Link>
+
+          <span className={`navbar-item ${isActive ? "" : "mr-4"}`}>About</span>
           <span className="navbar-item">
             <Link key="log-in" to={loggedInUser.length > 0 ? "/" : "/users"}>
               <span

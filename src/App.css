@@ -10,8 +10,7 @@ h5 {
   margin-top: 0.2em;
 }
 
-.bg-img-home {
-  background-image: url("https://images.unsplash.com/photo-1488866022504-f2584929ca5f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1462&q=80");
+#bg-img {
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -19,17 +18,29 @@ h5 {
   background-color: #999;
 }
 
-.bg-img-topics {
-  background-image: url("https://images.unsplash.com/photo-1595123550441-d377e017de6a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1306&q=80");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-color: #999;
+.bg-img-home {
+  background-image: url("https://images.unsplash.com/photo-1488866022504-f2584929ca5f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1462&q=80");
+}
+
+.bg-img-coding {
+  background-image: url("https://images.unsplash.com/photo-1547394765-185e1e68f34e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+}
+
+.bg-img-cooking {
+  background-image: url("https://images.unsplash.com/photo-1471193945509-9ad0617afabf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+}
+
+.bg-img-football {
+  background-image: url("https://images.unsplash.com/photo-1600529533273-938db2591dc4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80");
 }
 
 .all-topics-button {
   font-weight: bolder;
+}
+
+#topic-select-button {
+  background-color: hsl(204, 77%, 48%);
+  color: white;
 }
 
 #topic-button:hover {
