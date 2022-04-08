@@ -30,7 +30,7 @@ const AllUsers = () => {
         {users.map((user, index) => {
           return (
             <article
-              className="card column is-full-mobile is-one-quarter-tablet is-one-fifth-desktop is-one-sixth-widescreen  mx-5 my-5"
+              className="card column is-one-quarter-tablet is-one-fifth-desktop is-one-sixth-widescreen  mx-5 my-5"
               key={index}
             >
               <div className="card-image ">

@@ -45,7 +45,7 @@ const PostComment = ({
 
   return (
     <>
-      <form className="field mt-4 mx-6 px-6">
+      <form className="field mt-4 mx-4 px-4">
         <label className="label mt-3">Comment</label>
         <div className="control">
           <textarea

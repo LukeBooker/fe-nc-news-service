@@ -22,10 +22,17 @@ const Nav = () => {
       <div className="navbar-brand">
         <Link key="home" to="/">
           <span className="navbar-item">
-            <h5 className="has-text-info ml-3">nc news</h5>
+            <h5 className="has-text-info">nc news</h5>
           </span>
         </Link>
-        <p className="is-size-5 px-3 py-3 mt-2">
+        <p
+          className="is-size-5 px-3 py-3 mt-2 login"
+          id={
+            loggedInUser.length > 0
+              ? "nav-avatar-text-active"
+              : "nav-avatar-text-disabled"
+          }
+        >
           {loggedInUser.length > 0 ? `Hello, ${loggedInUser[0]}!` : null}
         </p>
         <figure>
@@ -53,10 +60,11 @@ const Nav = () => {
           aria-label="menu"
           aria-expanded="false"
           data-target="navbar"
+          id="burger-menu"
         >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
+          <span aria-hidden="true" id="burger-bars"></span>
+          <span aria-hidden="true" id="burger-bars"></span>
+          <span aria-hidden="true" id="burger-bars"></span>
         </span>
       </div>
       <div
@@ -64,20 +72,48 @@ const Nav = () => {
         className={`navbar-menu ${isActive ? "is-active" : ""} mr-3`}
       >
         <div className="navbar-end">
-          <span className="navbar-item">Post an article</span>
-
+          <Link className="navbar-item" key="post-article" to="/">
+            <span
+              className="navbar-item"
+              onClick={() => {
+                alert("Post an article coming soon!");
+                setIsActive(!isActive);
+              }}
+            >
+              Post an article
+            </span>
+          </Link>
           <Link
             className="navbar-item"
             key="article-of-day"
             to={`/articles/${day}`}
+            onClick={() => {
+              setIsActive(!isActive);
+            }}
           >
             {" "}
             <span className="navbar-item">Article of the day</span>
           </Link>
-
-          <span className={`navbar-item ${isActive ? "" : "mr-4"}`}>About</span>
+          <Link
+            className="navbar-item"
+            key="about"
+            to={`/about`}
+            onClick={() => {
+              setIsActive(!isActive);
+            }}
+          >
+            <span className={`navbar-item ${isActive ? "" : "mr-4"}`}>
+              About
+            </span>
+          </Link>
           <span className="navbar-item">
-            <Link key="log-in" to={loggedInUser.length > 0 ? "/" : "/users"}>
+            <Link
+              key="log-in"
+              to={loggedInUser.length > 0 ? "/" : "/users"}
+              onClick={() => {
+                setIsActive(!isActive);
+              }}
+            >
               <span
                 className={
                   loggedInUser.length > 0
@@ -86,6 +122,7 @@ const Nav = () => {
                 }
                 onClick={() => {
                   if (loggedInUser.length > 0) handleLogOut();
+                  setIsActive(!isActive);
                 }}
               >
                 <strong>
