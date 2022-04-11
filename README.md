@@ -1,69 +1,25 @@
-# Northcoders News
+# :newspaper: Welcome to Northcoders News! :newspaper:
 
-Northcoders News is a social news aggregation, web content rating, and discussion website.
+Link to deployed site - [Luke Booker's NC News](https://resplendent-croissant-393b15.netlify.app/)
 
-Northcoders News has articles which are divided into topics. Each article has user curated ratings and can be up or down voted using the API. Users can also add comments about an article.
+## :speech_balloon: Project Summary
 
-This sprint should consolidate your understanding of making a [C.R.U.D](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) application from a front end perspective.
+Northcoders News (NC-News) is a social news aggregation, web content rating, and discussion website. Users can access articles which can be divided by topic or sorted by various criteria. Each article has user ratings which can be up or down voted using the API. When logged in, users can also add/delete comments about an article.
 
-## BE Endpoints
+This project was created over two weeks on the Northcoders Coding Bootcamp. The first week was dedicated to building a RESTful API using Express.js with PostgreSQL; the second week focused on the front end working with REACT.js.
 
-The project currently has the following endpoints:
+Link to back end GitHub repository - [Back end NC News](https://github.com/LukeBooker/nc-news-service)
 
-- `GET /api` - responds with a JSON representation of all the available endpoints of the API
-- `GET /api/topics` - responds with an array of topic objects, each of which should have the properties: slug, description
-- `GET /api/articles/:article_id` - responds with an article object by id containing the correct article properties
-- `PATCH /api/articles/:article_id` - request body accepts an object in the form { inc_votes: newVote }, responds with article containing incremented/decremented votes
-- `GET /api/users` - responds with an array of objects, each object with the sole property 'username'
-- `GET /api/articles` - responds with an array of article objects, each object with the correct properties
-- `GET /api/articles/:article_id/comments` - responds with an array of comments, each containing the correct properties
-- `POST /api/articles/:article_id/comments` - responds with comment newly added to the article by id
-- `DELETE /api/comments/:comment_id` - responds with comment newly added to the article by id
+## :computer: Start instructions for a new developer
 
-## Kanban
+Please check your Node version. A minimum version of Node v17.0 is required to run this project locally.
 
-### Link to your Trello Board here: https://trello.com/b/cEYt2hYP
+Head over to GitHub and clone the repository.
 
-To keep track of the tasks involved in this project we're going to use a kanban board. Ensure that you work on one _ticket_ at time. You can click on the ticket to find out more information about what is required for the feature. A ticket is not considered complete unless both the happy path and errors response are handled and there is a basic structure to your styling.
+Using terminal:
+`git clone https://github.com/LukeBooker/fe-nc-news-service.git` to clone this repository.
+`cd fe-nc-news-service` in the newly cloned directory and open with your chosen code editor.
 
-**We suggest you work through the tickets from top to bottom.**
-
-## Git Branching and Pull Requests
-
-You will be working on each ticket on a new **branch**.
-
-To create and switch to a new git branch use the command:
-
-```
-git checkout -b <new branch name>
-```
-
-This will create a branch and move over to that branch. (Omit the `-b` flag if you wish to switch to an already existing branch).
-
-We recommend that you name the branch something that clearley shows the ticket you are working on. eg. `fe-ncnews-display-articles`
-
-When pushing the branch to git hub ensure that you make reference to the branch you are pushing to on the remote.
-
-```
-git push origin <branch name>
-```
-
-From github you can make a pull request and share the link and ticket number on your `nchelp` with a zoom link for you to demo your feature. A tutor will swing by to review your code. Ensure that you keep your trello up to date whilst you await the PR approval.
-
-Once a pull request been accepted be sure to switch back to the main branch and pull down the updated changes.
-
-```
-git checkout main
-
-git pull origin main
-```
-
-You can tidy up your local branches once they have been pull into main by deleting them:
-
-```
-git branch -D <local branch>
-```
-
-## Important
-
-This sprint is among the ones we'll ask you to complete in order to put you forward for jobs. Put a little bit of love into it! :) <3
+Run `npm install` to install the required dependencies.
+Use `npm start` to run the site on your local machine.
+Run `npm run build` to build the app for production.
