@@ -9,11 +9,15 @@ const About = () => {
           by Luke Booker
         </h3>
         <br></br>
-        <p className="mt-0 pt-0 px-4 has-text-left">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero sint
-          impedit id error quo modi, quibusdam ipsum, sit repudiandae delectus
-          vitae nulla totam dolorem temporibus at, dolor laborum blanditiis
-          quae.
+        <p className="mb-5 px-4 has-text-left">
+          Northcoders News (NC-News) is a social news aggregation, web content
+          rating, and discussion website. Users can access articles which can be
+          divided by topic or sorted by various criteria. Each article has user
+          ratings which can be up or down voted using the API. <br></br>{" "}
+          <br></br>This project was created over two weeks on the Northcoders
+          Coding Bootcamp. The first week was dedicated to building a RESTful
+          API using Express.js with PostgreSQL; the second week focused on the
+          front end working with REACT.js.
         </p>
       </section>
     </>
