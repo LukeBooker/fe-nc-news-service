@@ -1,11 +1,12 @@
 const ArticleSort = ({ sortBy, setSortBy, orderBy, setOrderBy }) => {
+  if (!orderBy) orderBy = "desc";
   return (
     <>
       <p className="is-centered mb-2 ">Sort by</p>
       <div className="buttons is-centered">
         <button
           className="button is-info "
-          disabled={sortBy === "created_at" ? "disabled" : ""}
+          disabled={sortBy === "created_at" || !sortBy ? "disabled" : ""}
           onClick={() => {
             setSortBy("created_at");
           }}
@@ -37,7 +38,7 @@ const ArticleSort = ({ sortBy, setSortBy, orderBy, setOrderBy }) => {
 
         <button
           disabled={orderBy === "asc" ? "disabled" : ""}
-          className="button is-info"
+          className="button is-info is-outlined"
           onClick={() => {
             setOrderBy("asc");
           }}
@@ -48,7 +49,7 @@ const ArticleSort = ({ sortBy, setSortBy, orderBy, setOrderBy }) => {
         </button>
         <button
           disabled={orderBy === "desc" ? "disabled" : ""}
-          className="button is-info"
+          className="button is-info is-outlined"
           onClick={() => {
             setOrderBy("desc");
           }}

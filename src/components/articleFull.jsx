@@ -36,12 +36,18 @@ const ArticleFull = ({
       if (err) setErr(true);
     });
   };
+  const date = new Date();
+  const day = date.getDate();
   if (err) return <ErrorMessage />;
 
   return (
-    <section className="box content mx-5 my-2">
+    <section className="box content mx-5 my-2 pt-2 pb-6">
       <h1 className="mx-0 my-0" id="full-article-title">
-        {title}
+        <p className="art-of-day">
+          {" "}
+          {articleId == day ? `Article of the day!` : ``}
+        </p>
+        <p> {title}</p>
       </h1>
       <h3 className="has-text-centered has-text-weight-light my-4">
         by {author}
@@ -53,7 +59,35 @@ const ArticleFull = ({
       <span className="has-text-info">{commentCount} comments</span>
       <br></br>
       <time>{timeArticleCreated}</time>
-      <p className="mt-3 px-4 has-text-left">{body}</p>
+      <p className="mt-3 mb-5 px-4 has-text-left">{body}</p>
+      <div>
+        <button
+          className="button is-info is-light pb-3 pt-3 mx-2 my-2"
+          disabled={disableUpVote}
+          onClick={() => {
+            handleVoteClick(+1);
+            if (newVotes === 0) setDisableUpVote(true);
+            setDisableDownVote(false);
+          }}
+        >
+          <i className="fas fa-arrow-alt-circle-up fa-2x"></i> Vote
+        </button>
+        <button
+          className="button is-info is-light pb-3 pt-3 mx-2 my-2"
+          disabled={disableDownVote}
+          onClick={() => {
+            handleVoteClick(-1);
+            if (newVotes === 0) setDisableDownVote(true);
+            setDisableUpVote(false);
+          }}
+        >
+          <i className="fas fa-arrow-alt-circle-down fa-2x"></i> Vote
+        </button>{" "}
+        <span className="tag is-size-6 pb-2 pt-1 mt-3 ml-2 mr-2">
+          <i className="fas fa-carrot fa-1x mr-1"></i>
+          {votes + newVotes} votes
+        </span>
+      </div>
       <Link key="home" to={`/`}>
         <button
           id="topic-button"
@@ -68,32 +102,6 @@ const ArticleFull = ({
         onClick={() => handleShowCommentForm()}
       >
         Post Comment
-      </button>
-      <button
-        className="button is-info is-light mx-2 my-2"
-        disabled={disableUpVote}
-        onClick={() => {
-          handleVoteClick(+1);
-          if (newVotes === 0) setDisableUpVote(true);
-          setDisableDownVote(false);
-        }}
-      >
-        <i className="fas fa-arrow-alt-circle-up fa-2x"></i> Vote
-      </button>
-      <span className="tag is-size-6 mt-3 ml-2 mr-2">
-        <i className="fas fa-carrot fa-1x mr-1"></i>
-        {votes + newVotes} votes
-      </span>
-      <button
-        className="button is-info is-light mx-2 my-2"
-        disabled={disableDownVote}
-        onClick={() => {
-          handleVoteClick(-1);
-          if (newVotes === 0) setDisableDownVote(true);
-          setDisableUpVote(false);
-        }}
-      >
-        <i className="fas fa-arrow-alt-circle-down fa-2x"></i> Vote
       </button>
     </section>
   );

@@ -18,16 +18,21 @@ const ArticleFullBody = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setIsLoading(true);
+    let mounted = true;
     api
       .fetchArticleById(articleId)
       .then((article) => {
-        setArticle(article);
-        setIsLoading(false);
+        if (mounted) {
+          setArticle(article);
+          setIsLoading(false);
+        }
       })
       .catch((err) => {
         setError({ err });
       });
+    return () => {
+      mounted = false;
+    };
   }, [articleId]);
 
   const handleShowCommentForm = () => {

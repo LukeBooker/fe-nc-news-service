@@ -47,33 +47,34 @@ const CommentsCard = ({
           @{author}
         </p>
         <p className="mb-3">{body}</p>
-        <button
-          className="button is-small pt-2 is-info is-light mx-0 my-0"
-          disabled={disableUpVote}
-          onClick={() => {
-            handleCommentVoteClick(+1);
-            if (newVotes === 0) setDisableUpVote(true);
-            setDisableDownVote(false);
-          }}
-        >
-          <i className="fas fa-arrow-alt-circle-up fa-2x"></i>
-        </button>
-        <span className="tag mx-1 my-0">
-          <i className="fas fa-carrot fa-1x mx-0 my-0"></i>
-          {votes + newVotes} votes
-        </span>
-        <button
-          className="button is-small pt-2 is-info is-light mx-0 my-0"
-          disabled={disableDownVote}
-          onClick={() => {
-            handleCommentVoteClick(-1);
-            if (newVotes === 0) setDisableDownVote(true);
-            setDisableUpVote(false);
-          }}
-        >
-          <i className="fas fa-arrow-alt-circle-down fa-2x"></i>
-        </button>
-
+        <div className="px-0">
+          <button
+            className="button is-small px-2 pb-3 pt-4 is-info is-light mx-0 my-0"
+            disabled={disableUpVote}
+            onClick={() => {
+              handleCommentVoteClick(+1);
+              if (newVotes === 0) setDisableUpVote(true);
+              setDisableDownVote(false);
+            }}
+          >
+            <i className="fas fa-arrow-alt-circle-up fa-2x"></i>
+          </button>
+          <span className="tag mx-1 my-0 px-2">
+            <i className="fas fa-carrot fa-1x mx-0 my-0"></i>
+            {votes + newVotes} votes
+          </span>
+          <button
+            className="button is-small px-2 pb-3 pt-4 is-info is-light mx-0 my-0"
+            disabled={disableDownVote}
+            onClick={() => {
+              handleCommentVoteClick(-1);
+              if (newVotes === 0) setDisableDownVote(true);
+              setDisableUpVote(false);
+            }}
+          >
+            <i className="fas fa-arrow-alt-circle-down fa-2x"></i>
+          </button>
+        </div>
         <p className="mt-2">{timeArticleCreated}</p>
         <button
           className="button is-small is-danger is-light"

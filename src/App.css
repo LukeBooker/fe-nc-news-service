@@ -10,8 +10,7 @@ h5 {
   margin-top: 0.2em;
 }
 
-.bg-img-home {
-  background-image: url("https://images.unsplash.com/photo-1488866022504-f2584929ca5f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1462&q=80");
+#bg-img {
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -19,17 +18,41 @@ h5 {
   background-color: #999;
 }
 
-.bg-img-topics {
-  background-image: url("https://images.unsplash.com/photo-1595123550441-d377e017de6a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1306&q=80");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-color: #999;
+.bg-img-home {
+  background-image: url("https://images.unsplash.com/photo-1488866022504-f2584929ca5f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1462&q=80");
+}
+
+.bg-img-coding {
+  background-image: url("https://images.unsplash.com/photo-1547394765-185e1e68f34e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+}
+
+.bg-img-cooking {
+  background-image: url("https://images.unsplash.com/photo-1471193945509-9ad0617afabf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+}
+
+.bg-img-football {
+  background-image: url("https://images.unsplash.com/photo-1600529533273-938db2591dc4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80");
+}
+
+.bg-img-about {
+  background-image: url("https://images.unsplash.com/photo-1460501501851-d5946a18e552?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
 }
 
 .all-topics-button {
   font-weight: bolder;
+}
+
+#burger-menu {
+  height: 5em;
+}
+
+#burger-bars {
+  color: black;
+}
+
+#topic-select-button {
+  background-color: hsl(204, 77%, 48%);
+  color: white;
 }
 
 #topic-button:hover {
@@ -92,4 +115,40 @@ h5 {
 
 #comment-error {
   visibility: visible;
+}
+
+#login-burger {
+  padding-left: 4em;
+  padding-right: 4em;
+}
+
+.art-of-day {
+  margin: 0;
+  padding-top: 0.5em;
+  font-size: 0.5em;
+  color: rgb(49, 49, 49);
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 450px) {
+  h5 {
+    margin-top: 12px;
+    font-size: 1.5em;
+  }
+  #nav-avatar-active {
+    display: flex;
+    align-items: center;
+    margin-right: 40px;
+    margin-top: 20px;
+  }
+  #nav-avatar-text-active {
+    display: flex;
+    align-items: center;
+    padding-right: 0px;
+    margin-right: 0px;
+  }
 }

@@ -18,17 +18,21 @@ const ArticleList = ({ users }) => {
   const [orderBy, setOrderBy] = useState("");
 
   useEffect(() => {
-    setIsLoading(true);
-    // setError(null);
+    let mounted = true;
     api
       .fetchArticles(topic, sortBy, orderBy)
       .then((articles) => {
-        setArticles(articles);
-        setIsLoading(false);
+        if (mounted) {
+          setArticles(articles);
+          setIsLoading(false);
+        }
       })
       .catch((err) => {
         setError({ err });
       });
+    return () => {
+      mounted = false;
+    };
   }, [topic, sortBy, orderBy]);
 
   if (error) {
@@ -40,9 +44,8 @@ const ArticleList = ({ users }) => {
   return (
     <>
       <Header topic={topic} />
-      <ArticleByTopic />
+      <ArticleByTopic topic={topic} />
       <ArticleSort
-        topic={topic}
         sortBy={sortBy}
         setSortBy={setSortBy}
         orderBy={orderBy}
