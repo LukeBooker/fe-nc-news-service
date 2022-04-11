@@ -45,7 +45,7 @@ const ArticleFull = ({
       <h1 className="mx-0 my-0" id="full-article-title">
         <p className="art-of-day">
           {" "}
-          {articleId == day ? `Article of the day!` : ``}
+          {+articleId === +day ? `Article of the day!` : ``}
         </p>
         <p> {title}</p>
       </h1>
