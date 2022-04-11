@@ -16,9 +16,9 @@ const CommentsList = ({ articleId, setComments, comments }) => {
     return () => {
       mounted = false;
     };
-  }, [articleId]);
+  });
 
-  if (isLoading) return <p>comments loading</p>;
+  if (isLoading) return <p className="is-size-2 mt-6">Comments loading...</p>;
 
   return (
     <>

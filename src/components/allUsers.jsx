@@ -21,7 +21,7 @@ const AllUsers = () => {
     setLoggedInUser([username, avatarUrl]);
   };
 
-  if (isLoading) return <p>users loading</p>;
+  if (isLoading) return <p>Loading users...</p>;
 
   return (
     <>

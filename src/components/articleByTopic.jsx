@@ -14,7 +14,7 @@ const ArticleByTopic = ({ topic }) => {
   }, []);
 
   if (isLoading)
-    return <p className="is-size-4 mx-5 my-5">loading topics...</p>;
+    return <p className="is-size-4 mx-5 my-5">Loading topics...</p>;
 
   return (
     <div>
