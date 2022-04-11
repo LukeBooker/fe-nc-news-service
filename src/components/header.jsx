@@ -3,7 +3,7 @@ const Header = ({ topic }) => {
     return (
       <>
         <header className="section mt-6 bg-img-home" id="bg-img">
-          <p className="title is-1 has-text-light mt-4">
+          <p className="title is-1 has-text-light mt-5">
             a little place for civil discourse
           </p>
         </header>
@@ -13,7 +13,7 @@ const Header = ({ topic }) => {
     return (
       <>
         <header className={`section mt-6 bg-img-${topic}`} id="bg-img">
-          <p className="title is-1 has-text-white mt-4">{topic}</p>
+          <p className="title is-1 has-text-white mt-5">{topic}</p>
         </header>
       </>
     );

@@ -76,8 +76,8 @@ const Nav = () => {
             <span
               className="navbar-item"
               onClick={() => {
-                alert("Post an article coming soon!");
-                setIsActive(!isActive);
+                alert("'Post an article' coming soon!");
+                if (isActive) setIsActive(!isActive);
               }}
             >
               Post an article
@@ -88,7 +88,7 @@ const Nav = () => {
             key="article-of-day"
             to={`/articles/${day}`}
             onClick={() => {
-              setIsActive(!isActive);
+              if (isActive) setIsActive(!isActive);
             }}
           >
             {" "}
@@ -99,19 +99,22 @@ const Nav = () => {
             key="about"
             to={`/about`}
             onClick={() => {
-              setIsActive(!isActive);
+              if (isActive) setIsActive(!isActive);
             }}
           >
             <span className={`navbar-item ${isActive ? "" : "mr-4"}`}>
               About
             </span>
           </Link>
-          <span className="navbar-item">
+          <span
+            className="navbar-item"
+            id={`${isActive ? "login-burger" : ""}`}
+          >
             <Link
               key="log-in"
               to={loggedInUser.length > 0 ? "/" : "/users"}
               onClick={() => {
-                setIsActive(!isActive);
+                if (isActive) setIsActive(!isActive);
               }}
             >
               <span
@@ -122,7 +125,7 @@ const Nav = () => {
                 }
                 onClick={() => {
                   if (loggedInUser.length > 0) handleLogOut();
-                  setIsActive(!isActive);
+                  if (isActive) setIsActive(!isActive);
                 }}
               >
                 <strong>

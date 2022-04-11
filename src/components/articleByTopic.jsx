@@ -28,7 +28,7 @@ const ArticleByTopic = ({ topic }) => {
               id={!topic ? "topic-select-button" : "topic-button"}
               className="all-topics-button button is-info is-outlined is-rounded is-medium mx-2 my-2"
             >
-              All topics
+              all topics
             </button>
           </Link>
           {topics.map(({ slug }) => {
