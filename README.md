@@ -14,7 +14,7 @@ Link to back end GitHub repository - [Back end NC News](https://github.com/LukeB
 
 Please check your Node version. A minimum version of Node v17.0 is required to run this project locally.
 
-Head over to GitHub and clone the repository.
+First, Go to GitHub and clone the repository.
 
 Using terminal:
 `git clone https://github.com/LukeBooker/fe-nc-news-service.git` to clone this repository.
