@@ -7,10 +7,16 @@ const ArticleByTopic = ({ topic }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    let mounted = true;
     api.fetchTopics().then((topics) => {
-      setTopics(topics);
-      setIsLoading(false);
+      if (mounted) {
+        setTopics(topics);
+        setIsLoading(false);
+      }
     });
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   if (isLoading)

@@ -46,7 +46,11 @@ const PostComment = ({
   return (
     <>
       <form className="field mt-4 mx-4 px-4">
-        <label className="label mt-3">Comment</label>
+        <label className="label has-text-grey-dark is-size-4 mt-3">
+          {loggedInUser.length > 0
+            ? "Comment"
+            : "Please log in to post a comment"}
+        </label>
         <div className="control">
           <textarea
             className="textarea"

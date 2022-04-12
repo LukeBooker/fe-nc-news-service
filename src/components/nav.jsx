@@ -56,20 +56,20 @@ const Nav = () => {
             setIsActive(!isActive);
           }}
           role="button"
-          className={`navbar-burger burger mr-2 ${isActive ? "is-active" : ""}`}
+          className={`navbar-burger burger ${isActive ? "is-active" : ""}`}
           aria-label="menu"
           aria-expanded="false"
           data-target="navbar"
           id="burger-menu"
         >
-          <span aria-hidden="true" id="burger-bars"></span>
-          <span aria-hidden="true" id="burger-bars"></span>
-          <span aria-hidden="true" id="burger-bars"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
         </span>
       </div>
       <div
         id="navbar"
-        className={`navbar-menu ${isActive ? "is-active" : ""} mr-3`}
+        className={`navbar-menu ${isActive ? "is-active" : ""} ml-3 mr-3`}
       >
         <div className="navbar-end">
           <Link className="navbar-item" key="post-article" to="/">

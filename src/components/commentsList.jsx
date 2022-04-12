@@ -18,7 +18,7 @@ const CommentsList = ({ articleId, setComments, comments }) => {
     };
   });
 
-  if (isLoading) return <p className="is-size-2 mt-6">Comments loading...</p>;
+  if (isLoading) return <p className="is-size-4 mt-5">Comments loading...</p>;
 
   return (
     <>
