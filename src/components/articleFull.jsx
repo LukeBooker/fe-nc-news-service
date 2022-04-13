@@ -62,7 +62,8 @@ const ArticleFull = ({
       <p className="mt-3 mb-5 px-4 has-text-left">{body}</p>
       <div>
         <button
-          className="button is-info is-light pb-3 pt-3 mx-2 my-2"
+          className="button is-info is-light pb-4 pt-4 mx-2 my-2"
+          id="vote-button"
           disabled={disableUpVote}
           onClick={() => {
             handleVoteClick(+1);
@@ -70,10 +71,28 @@ const ArticleFull = ({
             setDisableDownVote(false);
           }}
         >
-          <i className="fas fa-arrow-alt-circle-up fa-2x"></i> Vote
+          <i
+            className="fas fa-arrow-alt-circle-up fa-2x"
+            id="vote-button-text"
+          ></i>{" "}
+          Vote
         </button>
+        <span
+          className="tag is-size-6 pb-2 pt-1 mt-3"
+          id={
+            newVotes === 0
+              ? ""
+              : newVotes === 1
+              ? "plus-one-vote"
+              : "minus-one-vote"
+          }
+        >
+          <i className="fas fa-carrot fa-1x mr-1"></i>
+          {votes + newVotes} votes
+        </span>
         <button
-          className="button is-info is-light pb-3 pt-3 mx-2 my-2"
+          className="button is-info is-light pb-4 pt-4 mx-2 my-2"
+          id="vote-button"
           disabled={disableDownVote}
           onClick={() => {
             handleVoteClick(-1);
@@ -81,12 +100,12 @@ const ArticleFull = ({
             setDisableUpVote(false);
           }}
         >
-          <i className="fas fa-arrow-alt-circle-down fa-2x"></i> Vote
+          <i
+            className="fas fa-arrow-alt-circle-down fa-2x"
+            id="vote-button-text"
+          ></i>{" "}
+          Vote
         </button>{" "}
-        <span className="tag is-size-6 pb-2 pt-1 mt-3 ml-2 mr-2">
-          <i className="fas fa-carrot fa-1x mr-1"></i>
-          {votes + newVotes} votes
-        </span>
       </div>
       <Link key="home" to={`/`}>
         <button
