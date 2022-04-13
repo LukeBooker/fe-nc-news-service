@@ -4,6 +4,7 @@ import Header from "./header";
 import { useContext } from "react";
 import { UserContext } from "../contexts/userLogIn";
 import { Link } from "react-router-dom";
+import Loading from "./loading";
 
 const AllUsers = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -21,7 +22,7 @@ const AllUsers = () => {
     setLoggedInUser([username, avatarUrl]);
   };
 
-  if (isLoading) return <p>Loading users...</p>;
+  if (isLoading) return <Loading />;
 
   return (
     <>

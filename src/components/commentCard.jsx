@@ -59,7 +59,16 @@ const CommentsCard = ({
           >
             <i className="fas fa-arrow-alt-circle-up fa-2x"></i>
           </button>
-          <span className="tag mx-1 my-0 px-2">
+          <span
+            className="tag mx-1 my-0 px-2"
+            id={
+              newVotes === 0
+                ? ""
+                : newVotes === 1
+                ? "plus-one-vote"
+                : "minus-one-vote"
+            }
+          >
             <i className="fas fa-carrot fa-1x mx-0 my-0"></i>
             {votes + newVotes} votes
           </span>
